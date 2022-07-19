@@ -24,6 +24,7 @@ import QGroundControl.FlightMap                 1.0
 
 /// This provides the smarts behind the guided mode commands, minus the user interface. This way you can change UI
 /// without affecting the underlying functionality.
+///这提供了引导模式命令背后的智能，减去了用户界面。这样你就可以改变用户界面而不影响底层功能。
 Item {
     id: _root
 

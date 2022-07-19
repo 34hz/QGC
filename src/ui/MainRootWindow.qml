@@ -27,7 +27,7 @@ ApplicationWindow {
     minimumWidth:   ScreenTools.isMobile ? Screen.width  : Math.min(ScreenTools.defaultFontPixelWidth * 100, Screen.width)
     minimumHeight:  ScreenTools.isMobile ? Screen.height : Math.min(ScreenTools.defaultFontPixelWidth * 50, Screen.height)
     visible:        true
-    /*
+
     Column{
         id:testBox
         anchors.verticalCenter:  parent.verticalCenter
@@ -69,13 +69,13 @@ ApplicationWindow {
             }
         }
         QGCButton{
-            text:"pushPreventViewSwitch"
+            text:"开始模拟器"
             onClicked:  {
-               pushPreventViewSwitch()
+               QGroundControl.startPX4MockLink(false)
             }
         }
     }
-*/
+
     Component.onCompleted: {
         //-- Full screen on mobile or tiny screens
         if (ScreenTools.isMobile || Screen.height / ScreenTools.realPixelDensity < 120) {

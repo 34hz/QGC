@@ -18,6 +18,7 @@ import QGroundControl.Palette       1.0
 import QGroundControl.Vehicle       1.0
 import QGroundControl.FlightMap     1.0
 
+//多载具控制指令
 Item {
     property real   _margin:            ScreenTools.defaultFontPixelWidth / 2
     property real   _widgetHeight:      ScreenTools.defaultFontPixelHeight * 3

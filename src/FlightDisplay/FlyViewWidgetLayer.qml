@@ -38,7 +38,7 @@ Item {
     property var    totalToolInsets:        _totalToolInsets
     property var    mapControl
 
-    property var    _activeVehicle:         QGroundControl.multiVehicleManager.activeVehicle
+    property var    _activeVehicle:         QGroundControl.multiVehicleManager.activeVehicle//主载具
     property var    _planMasterController:  globals.planMasterControllerFlyView
     property var    _missionController:     _planMasterController.missionController
     property var    _geoFenceController:    _planMasterController.geoFenceController
@@ -71,7 +71,7 @@ Item {
         rallyPointController:   _rallyPointController
     }
 
-    Row {
+    Row {//多载具信息,罗盘和控制指令（主窗口右侧）
         id:                 multiVehiclePanelSelector
         anchors.margins:    _toolsMargin
         anchors.top:        parent.top
@@ -84,20 +84,20 @@ Item {
 
         QGCMapPalette { id: mapPal; lightColors: true }
 
-        QGCRadioButton {
+        QGCRadioButton {//显示一个载具信息
             id:             singleVehicleRadio
             text:           qsTr("Single")
             checked:        true
             textColor:      mapPal.text
         }
 
-        QGCRadioButton {
+        QGCRadioButton {//显示多个载具信息
             text:           qsTr("Multi-Vehicle")
             textColor:      mapPal.text
         }
     }
 
-    MultiVehicleList {
+    MultiVehicleList {//多载具控制列表?
         anchors.margins:    _toolsMargin
         anchors.top:        multiVehiclePanelSelector.bottom
         anchors.right:      parent.right
@@ -106,7 +106,7 @@ Item {
         visible:            !multiVehiclePanelSelector.showSingleVehiclePanel
     }
 
-    FlyViewInstrumentPanel {
+    FlyViewInstrumentPanel {//罗盘
         id:                         instrumentPanel
         anchors.margins:            _toolsMargin
         anchors.top:                multiVehiclePanelSelector.visible ? multiVehiclePanelSelector.bottom : parent.top
@@ -119,7 +119,7 @@ Item {
         property real rightInset: visible ? parent.width - x : 0
     }
 
-    PhotoVideoControl {
+    PhotoVideoControl {//拍照
         id:                     photoVideoControl
         anchors.margins:        _toolsMargin
         anchors.right:          parent.right
@@ -147,7 +147,7 @@ Item {
         property bool _verticalCenter: !QGroundControl.settingsManager.flyViewSettings.alternateInstrumentPanel.rawValue
     }
 
-    TelemetryValuesBar {
+    TelemetryValuesBar {//遥测数据
         id:                 telemetryPanel
         x:                  recalcXPosition()
         anchors.margins:    _toolsMargin
@@ -214,6 +214,19 @@ Item {
             }
         }
     }
+//    //测试遥测数据
+//    Rectangle{
+//        width:100
+//        height:100
+//        color: "red"
+//        anchors.centerIn: parent
+//        opacity: 0.5
+//        Text {
+//            id: height
+//            anchors.centerIn: parent
+//            text: QGroundControl.multiVehicleManager.activeVehicle.latitude
+//        }
+//    }
 
     //-- Virtual Joystick
     Loader {

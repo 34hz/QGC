@@ -74,7 +74,7 @@ Item {
         bottomEdgeLeftInset:    _pipOverlay.visible ? parent.height - _pipOverlay.y : 0
     }
 
-    FlyViewWidgetLayer {
+    FlyViewWidgetLayer {//FlyView视图上面的其他控件
         id:                     widgetLayer
         anchors.top:            parent.top
         anchors.bottom:         parent.bottom
@@ -95,7 +95,7 @@ Item {
         visible:            !QGroundControl.videoManager.fullScreen
     }
 
-    GuidedActionsController {
+    GuidedActionsController {//控制接口
         id:                 guidedActionsController
         missionController:  _missionController
         actionList:         _guidedActionList
@@ -122,7 +122,7 @@ Item {
     }
 
     //-- Guided value slider (e.g. altitude)
-    GuidedValueSlider {
+    GuidedValueSlider {//高度控制slider滑块
         id:                 guidedValueSlider
         anchors.margins:    _toolsMargin
         anchors.right:      parent.right
@@ -135,7 +135,7 @@ Item {
         visible:            false
     }
 
-    FlyViewMap {
+    FlyViewMap {//地图
         id:                     mapControl
         planMasterController:   _planController
         rightPanelWidth:        ScreenTools.defaultFontPixelHeight * 9
@@ -144,7 +144,7 @@ Item {
         mapName:                "FlightDisplayView"
     }
 
-    FlyViewVideo {
+    FlyViewVideo {//gst直播视频
         id: videoControl
     }
 

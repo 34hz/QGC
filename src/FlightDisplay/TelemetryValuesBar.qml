@@ -33,7 +33,7 @@ Rectangle {
         anchors.bottom:     parent.bottom
         anchors.left:       parent.left
 
-         RowLayout {
+         RowLayout {//改变布局位置
             visible: mouseArea.containsMouse || valueArea.settingsUnlocked
 
             QGCColoredImage {
